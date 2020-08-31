@@ -78,6 +78,7 @@ function attachLoggersToRequest(protocol, options, callback) {
   let originalWrite = req.write;
   req.write = function () {
     logBodyChunk(requestData, arguments[0]);
+    console.log("REQUEST DATA", JSON.stringify(requestData))
     originalWrite.apply(req, arguments);
   };
 
